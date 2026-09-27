@@ -20,3 +20,24 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run build
+      - name: Smoke test the Node server
+        run: |
+          npm run start -- --port 3000 > /tmp/jenny-next.log 2>&1 &
+          server_pid=$!
+          trap 'kill "$server_pid" 2>/dev/null || true' EXIT
+          ready=false
+          for attempt in {1..30}; do
+            if curl -fsS -o /dev/null http://127.0.0.1:3000/; then
+              ready=true
+              break
+            fi
+            sleep 1
+          done
+          if [ "$ready" != true ]; then
+            cat /tmp/jenny-next.log
+            exit 1
+          fi
+          for route in / /operating-principles /fractional-operations-leadership /operations-systems-process-improvement /delegation-systems /ai-enabled-operations /case-studies; do
+            curl -fsS "http://127.0.0.1:3000$route" -o /tmp/jenny-route.html
+            grep -q 'Jenny Delumen-Buenaobra' /tmp/jenny-route.html
+          done
