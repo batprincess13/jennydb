@@ -1,33 +1,13 @@
-# Jenny Delumen-Buenaobra — Personal Website
+# Jenny Delumen-Buenaobra — Personal Brand Website
 
-Source repository for Jenny Delumen-Buenaobra's personal brand website.
+This repository is the source of truth for `jennydb.shopandhire.net`.
 
-## Positioning
+The site is static HTML, CSS, and JavaScript so it can be hosted independently of ChatGPT Sites. The fit-call form submits directly to FormSubmit. All public pages and assets are stored in this repository.
 
-**Operations & Execution Leader | AI Enthusiast**
+## Local preview
 
-Core commercial value:
-- operations and execution
-- systems and process improvement
-- accountability and operating structure
-- practical AI implementation
-- human-AI augmentation
+```bash
+python3 -m http.server 8080
+```
 
-## Current files
-
-- `index.html` — production-ready static page
-- `styles.css` — responsive styling using Jenny's established charcoal / baby pink / gold palette
-- `DEPLOYMENT.md` — deployment notes for Hostinger
-
-## Content guardrails
-
-- Do not label Jenny publicly as “Operations Consultant.”
-- Operations and execution remain the primary identity.
-- AI is a differentiator and applied capability layer.
-- Do not invent metrics or credentials.
-- Rondesse is a former employer.
-- Keep professional-services/legal AI examples framed as support workflows with professional review and approval.
-
-## Source material
-
-Market-facing copy and case studies are maintained in Jenny's connected Google Drive under the Talent/Commercial Profile assets.
+Open `http://localhost:8080`.
